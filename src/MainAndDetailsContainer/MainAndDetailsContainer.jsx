@@ -1,16 +1,14 @@
 import SearchFilterContainer from "../SearchFilterContainer/SearchFilterContainer"
 import SubscriptionsListContainer from "../SubscriptionsListContainer/SubscriptionsListContainer"
 
-function MainContainer() {
-
+function MainAndDetailsContainer() {
     return (
         <div>
-            <h2>MainContainer:</h2>
+            <h2>MainAndDetailsContainer:</h2>
             <SearchFilterContainer />
             <SubscriptionsListContainer />
-            {/* Not sure if I should render SubscriptionsDetailsContainer here, or from SubscriptionsListContainer */}
         </div>
     )
 }
 
-export default MainContainer
+export default MainAndDetailsContainer

@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import MainContainer from './MainContainer/MainContainer'
+import MainAndDetailsContainer from './MainAndDetailsContainer/MainAndDetailsContainer'
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
       <h1>Tea Subscriptions Admin View - Welcome!</h1>
       <Routes>
         <Route path='/' element={<MainContainer />} />
-        <Route path='/:subscription_id' element={<MainContainer />} />
+        <Route path='/:subscription_id' element={<MainAndDetailsContainer />} />
       </Routes>
     </main>
   )
