@@ -19,7 +19,7 @@ function StatusButtonContainer({ detailedInfo, setDetailedInfo }) {
         } else if (oldStatus === "cancelled") {
             return "active"
         } else {
-            return "Houston, we have a problem"
+            return "Houston, we've had a problem"           //How it was ACTUALLY said during Apollo 13 mission
         }
     }
 

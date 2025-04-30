@@ -20,8 +20,8 @@ function SubscriptionButtonContainer({ subscriptionInfo, setDetailedInfo }) {
         <button onClick={() => getDetailedInfo()}>
             <h4>SubscriptionButtonContainer:</h4>
             <p>{subscriptionInfo.title}</p>
-            <p>{subscriptionInfo.id}</p>
-            <p>{subscriptionInfo.status}</p>
+            <p>Image goes here</p>
+            <p>{`(${subscriptionInfo.status})`}</p>
         </button>
     )
 }
