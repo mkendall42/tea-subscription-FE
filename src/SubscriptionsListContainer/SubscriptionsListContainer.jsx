@@ -22,7 +22,7 @@ function SubscriptionsListContainer() {
     //Definitely clean this up later, since the render in return() is separately calling it.  Either set to var, or just one function call!
     useEffect(() => generateButtonList, [subscriptions])
     
-    function generateButtonList() {
+    const generateButtonList = () => {
         if (subscriptions.length === 0) {
             return <p>Empty list (no subscriptions present)</p>
         } else {
@@ -33,12 +33,12 @@ function SubscriptionsListContainer() {
     }
 
     return (
-        <div>
+        <section>
             <h3>SubscriptionsListContainer:</h3>
             {/* <SubscriptionButtonContainer /> */}
             {generateButtonList()}
             {/* Not sure if I should render SubscriptionsDetailsContainer here, or from MainContainer */}
-        </div>
+        </section>
     )
 }
 
