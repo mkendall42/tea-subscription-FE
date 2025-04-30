@@ -1,3 +1,4 @@
+import "./MainContainer.css"
 import SearchFilterContainer from "../SearchFilterContainer/SearchFilterContainer"
 import SubscriptionsListContainer from "../SubscriptionsListContainer/SubscriptionsListContainer"
 import SubscriptionDetailsContainer from "../SubscriptionDetailsContainer/SubscriptionDetailsContainer"
@@ -19,20 +20,22 @@ function MainContainer() {
     }, [detailedInfo])
     
     return (
-        <div>
-            <h2>MainContainer:</h2>
-            <SearchFilterContainer
-                subscriptions={subscriptions}
-                setFilteredSubscriptions={setFilteredSubscriptions}
-            />
-            <SubscriptionsListContainer
-                subscriptions={subscriptions}
-                setSubscriptions={setSubscriptions}
-                filteredSubscriptions={filteredSubscriptions}
-                detailedInfo={detailedInfo}
-                setDetailedInfo={setDetailedInfo}
-            />
-            {isDetailsView && <SubscriptionDetailsContainer detailedInfo={detailedInfo} setDetailedInfo={setDetailedInfo} />}
+        <div className="main-layout">
+            <div className="left-window-side">
+                <h2>MainContainer:</h2>
+                <SearchFilterContainer
+                    subscriptions={subscriptions}
+                    setFilteredSubscriptions={setFilteredSubscriptions}
+                />
+                <SubscriptionsListContainer
+                    subscriptions={subscriptions}
+                    setSubscriptions={setSubscriptions}
+                    filteredSubscriptions={filteredSubscriptions}
+                    detailedInfo={detailedInfo}
+                    setDetailedInfo={setDetailedInfo}
+                />
+            </div>
+            {isDetailsView && <SubscriptionDetailsContainer className="right-window-side" detailedInfo={detailedInfo} setDetailedInfo={setDetailedInfo} />}
             {/* Not sure if I should render SubscriptionsDetailsContainer here, or from SubscriptionsListContainer */}
         </div>
     )

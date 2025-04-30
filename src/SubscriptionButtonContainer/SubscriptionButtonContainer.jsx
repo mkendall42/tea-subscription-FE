@@ -1,4 +1,5 @@
 // import SubscriptionsListContainer from '../SubscriptionsListContainer/SubscriptionsListContainer'
+import teaImage from "../assets/teaBagsImage.jpg"
 import "./SubscriptionButtonContainer.css"
 import { useState } from 'react'
 
@@ -17,11 +18,13 @@ function SubscriptionButtonContainer({ subscriptionInfo, setDetailedInfo }) {
     }
 
     return (
-        <button onClick={() => getDetailedInfo()}>
-            <h4>SubscriptionButtonContainer:</h4>
-            <p>{subscriptionInfo.title}</p>
-            <p>Image goes here</p>
-            <p>{`(${subscriptionInfo.status})`}</p>
+        <button className="subscription-button" onClick={() => getDetailedInfo()}>
+            {/* <h4>SubscriptionButtonContainer:</h4> */}
+            <div className="wrapper">
+                <p>{subscriptionInfo.title}</p>
+                <p>{`(${subscriptionInfo.status})`}</p>
+            </div>
+            <img src={teaImage}></img>
         </button>
     )
 }

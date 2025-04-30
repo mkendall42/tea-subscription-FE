@@ -1,0 +1,26 @@
+.subscription-button {
+    min-width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+img {
+    width: 80px;
+    height: 80px;
+}
+
+p {
+    margin: 5px;
+    /* justify-items: left; */
+}
+
+.wrapper {
+    /* These should be in a column */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 400px;
+}
+

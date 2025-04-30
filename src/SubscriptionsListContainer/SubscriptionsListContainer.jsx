@@ -1,4 +1,6 @@
+import "./SubscriptionsListContainer.css"
 import SubscriptionButtonContainer from "../SubscriptionButtonContainer/SubscriptionButtonContainer"
+
 import { useState, useEffect } from 'react'
 
 function SubscriptionsListContainer({ subscriptions, setSubscriptions, filteredSubscriptions, detailedInfo, setDetailedInfo }) {
@@ -27,6 +29,7 @@ function SubscriptionsListContainer({ subscriptions, setSubscriptions, filteredS
     
     const generateButtonList = () => {
 
+        console.log("Generating button list...")
         console.log("subscriptions: ", subscriptions)
         console.log("filteredSubscriptions: ", filteredSubscriptions)
 
@@ -48,10 +51,12 @@ function SubscriptionsListContainer({ subscriptions, setSubscriptions, filteredS
     }
 
     return (
-        <section>
-            <h3>SubscriptionsListContainer:</h3>
+        <section className="subscriptions-list">
+            <h3>Subscriptions in Database:</h3>
             {/* <SubscriptionButtonContainer /> */}
-            {generateButtonList()}
+            <div className="buttons-list">
+                {generateButtonList()}
+            </div>
             {/* Not sure if I should render SubscriptionsDetailsContainer here, or from MainContainer */}
         </section>
     )

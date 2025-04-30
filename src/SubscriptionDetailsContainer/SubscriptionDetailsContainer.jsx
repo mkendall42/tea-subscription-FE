@@ -1,3 +1,4 @@
+import "./SubscriptionDetailsContainer.css"
 import StatusButtonContainer from "../StatusButtonContainer/StatusButtonContainer"
 
 function SubscriptionDetailsContainer({ detailedInfo, setDetailedInfo }) {
@@ -9,7 +10,14 @@ function SubscriptionDetailsContainer({ detailedInfo, setDetailedInfo }) {
     //NOTE: do I need to add more BE endpoints to send tea and customer data?  Or is a huge serializer / JSON response acceptable here?  I'm probably just gonna do the latter...
 
     //Handle alert on changed status
-    //Would be nice to color the text for status type
+    
+    let statusColorClass = ""
+    if (detailedInfo.data.status === "active") {
+        statusColorClass = "show-green"
+    } else {
+        statusColorClass = "show-red"
+    }
+
     return (
         <section>
             <h3>SubscriptionDetailsContainer:</h3>
@@ -17,7 +25,7 @@ function SubscriptionDetailsContainer({ detailedInfo, setDetailedInfo }) {
             <details>
                 <summary>Subscription Information</summary>
                 <p>{`Name / bundle: ${detailedInfo.data.title}`}</p>
-                <p>{`Present status: ${detailedInfo.data.status}`}</p>
+                <p className={statusColorClass}>{`Present status: ${detailedInfo.data.status}`}</p>
                 <p>{`Price: $${detailedInfo.data.price}`}</p>
                 <p>{`Frequency: ${detailedInfo.data.frequency} / month`}</p>
             </details>

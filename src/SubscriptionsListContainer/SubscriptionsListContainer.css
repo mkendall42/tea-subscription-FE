@@ -1,0 +1,11 @@
+.subscriptions-list {
+    
+    border-width: 5px;
+    border-color: green;
+    border-style: solid;
+}
+
+.buttons-list {
+    display: flex;
+    flex-direction: column;
+}

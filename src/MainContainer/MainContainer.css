@@ -1,0 +1,18 @@
+/*Need to create LHS column for buttons list, RHS box for details; above this is search and header/welcome/whatever*/
+
+.main-layout {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-window-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* align-items: stretch; */
+    flex: 0.7;
+}
+
+.right-window-side {
+    flex: 1;
+}
