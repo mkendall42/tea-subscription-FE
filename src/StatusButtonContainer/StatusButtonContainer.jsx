@@ -58,6 +58,11 @@ function StatusButtonContainer({ detailedInfo, setDetailedInfo }) {
         fetch(`http://localhost:3000/api/v1/subscriptions/${detailedInfo.data.id}`, httpParams)
             .then(result => {
                 console.log("Results: ", result)
+                if (!result.ok) {
+                    throw new Error(`${result.status}: failed to retrieve list of subscriptions.`)
+                }
+    
+                // return response.json()
                 
                 //Create a structured clone, change 'status', then re-save
                 let newDetailedInfo = structuredClone(detailedInfo)

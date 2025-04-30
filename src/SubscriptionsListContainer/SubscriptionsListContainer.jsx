@@ -6,14 +6,20 @@ import { useState, useEffect } from 'react'
 function SubscriptionsListContainer({ subscriptions, setSubscriptions, filteredSubscriptions, detailedInfo, setDetailedInfo }) {
     // const [subscriptions, setSubscriptions] = useState([])
 
-    console.log("filteredSubscriptions: ", filteredSubscriptions)
+    console.log("RENDERING SubscriptionsListContainer: filteredSubscriptions: ", filteredSubscriptions)
 
     //Have BE API call to get list of subscriptions (names, IDs, and maybe even status)
     //Doesn't need to render often (unless status of one is changed - trigger w/ the button perhaps)
     useEffect(() => {
         // console.log("I'm here")
         fetch("http://localhost:3000/api/v1/subscriptions")
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`${response.status}: failed to retrieve list of subscriptions.`)
+            }
+
+            return response.json()
+        })
         .then(subscriptionsData => {
             console.log("Incoming data array: ", subscriptionsData)
             setSubscriptions(subscriptionsData.data.subscriptions)

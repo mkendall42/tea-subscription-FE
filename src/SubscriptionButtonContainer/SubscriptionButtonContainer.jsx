@@ -10,7 +10,13 @@ function SubscriptionButtonContainer({ subscriptionInfo, setDetailedInfo }) {
     //API BE call to get detailed info for display
     const getDetailedInfo = () => {
         fetch(`http://localhost:3000/api/v1/subscriptions/${subscriptionInfo.id}`)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`${response.status}: failed to retrieve details for subscription with id=${subscriptionInfo.id}`)
+                }
+
+                return response.json()
+            })
             .then(data => {
                 console.log("Incoming subscription details: ", data)
                 setDetailedInfo(data)
