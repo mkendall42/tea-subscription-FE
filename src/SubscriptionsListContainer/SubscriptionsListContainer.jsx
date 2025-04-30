@@ -1,12 +1,15 @@
 import SubscriptionButtonContainer from "../SubscriptionButtonContainer/SubscriptionButtonContainer"
 import { useState, useEffect } from 'react'
 
-function SubscriptionsListContainer({ detailedInfo, setDetailedInfo }) {
-    const [subscriptions, setSubscriptions] = useState([])
+function SubscriptionsListContainer({ subscriptions, setSubscriptions, filteredSubscriptions, detailedInfo, setDetailedInfo }) {
+    // const [subscriptions, setSubscriptions] = useState([])
+
+    console.log("filteredSubscriptions: ", filteredSubscriptions)
 
     //Have BE API call to get list of subscriptions (names, IDs, and maybe even status)
     //Doesn't need to render often (unless status of one is changed - trigger w/ the button perhaps)
     useEffect(() => {
+        // console.log("I'm here")
         fetch("http://localhost:3000/api/v1/subscriptions")
         .then(response => response.json())
         .then(subscriptionsData => {
@@ -23,10 +26,20 @@ function SubscriptionsListContainer({ detailedInfo, setDetailedInfo }) {
     useEffect(() => generateButtonList, [subscriptions])
     
     const generateButtonList = () => {
-        if (subscriptions.length === 0) {
-            return <p>Empty list (no subscriptions present)</p>
+
+        console.log("subscriptions: ", subscriptions)
+        console.log("filteredSubscriptions: ", filteredSubscriptions)
+
+        // if(!filteredSubscriptions) {
+            
+        // }
+
+        // debugger
+
+        if (filteredSubscriptions.length === 0) {
+            return <p>Empty list (no filteredSubscriptions present)</p>
         } else {
-            return subscriptions.sort((subscription1, subscription2) => {       //Needed because BE DB returns results based on updated_at timestamp, apparently
+            return filteredSubscriptions.sort((subscription1, subscription2) => {       //Needed because BE DB returns results based on updated_at timestamp, apparently
                 return subscription1.id - subscription2.id
             }).map((subscription) => {
                 return <SubscriptionButtonContainer key={subscription.id} subscriptionInfo={subscription} setDetailedInfo={setDetailedInfo} />
