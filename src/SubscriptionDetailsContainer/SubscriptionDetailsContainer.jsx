@@ -8,7 +8,7 @@ function SubscriptionDetailsContainer({ detailedInfo }) {
     return (
         <section>
             <h3>SubscriptionDetailsContainer:</h3>
-            <StatusButtonContainer />
+            <StatusButtonContainer detailedInfo={detailedInfo} />
         </section>
     )
 }
