@@ -1,3 +1,5 @@
+import StatusButtonContainer from "../StatusButtonContainer/StatusButtonContainer"
+
 function SubscriptionDetailsContainer({ detailedInfo }) {
 
     //BE API call to get detailed info on subscription
@@ -6,6 +8,7 @@ function SubscriptionDetailsContainer({ detailedInfo }) {
     return (
         <section>
             <h3>SubscriptionDetailsContainer:</h3>
+            <StatusButtonContainer />
         </section>
     )
 }
