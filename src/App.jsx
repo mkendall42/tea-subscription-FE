@@ -13,8 +13,9 @@ function App() {
     <main className='App'>
       <h1>Tea Subscriptions Admin View - Welcome!</h1>
       <Routes>
-        <Route path='/' element={<MainContainer />} />
-        <Route path='/:subscription_id' element={<MainAndDetailsContainer />} />
+        <Route path='/' element={<MainContainer isShowDetails={false} />} />
+        {/* <Route path='/:subscription_id' element={<MainAndDetailsContainer />} /> */}
+        <Route path='/:subscription_id' element={<MainContainer isShowDetails={true} />} />
       </Routes>
     </main>
   )

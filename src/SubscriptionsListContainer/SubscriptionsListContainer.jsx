@@ -53,6 +53,7 @@ function SubscriptionsListContainer({ subscriptions, setSubscriptions, filteredS
     return (
         <section className="subscriptions-list">
             <h3>Subscriptions in Database:</h3>
+            <hr></hr>
             {/* <SubscriptionButtonContainer /> */}
             <div className="buttons-list">
                 {generateButtonList()}

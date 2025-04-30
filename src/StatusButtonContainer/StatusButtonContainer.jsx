@@ -139,7 +139,7 @@ function StatusButtonContainer({ detailedInfo, setDetailedInfo }) {
     }
 
     return (
-        <button onClick={() => changeStatus(false)}>
+        <button className="status-button" onClick={() => changeStatus(false)}>
             {currentStatus}
         </button>
     )

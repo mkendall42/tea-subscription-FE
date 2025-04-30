@@ -4,7 +4,7 @@ import SubscriptionsListContainer from "../SubscriptionsListContainer/Subscripti
 import SubscriptionDetailsContainer from "../SubscriptionDetailsContainer/SubscriptionDetailsContainer"
 import { useState, useEffect } from 'react'
 
-function MainContainer() {
+function MainContainer({ isShowDetails }) {
     const [detailedInfo, setDetailedInfo] = useState({})
     const [isDetailsView, setIsDetailsView] = useState(false)
     const [subscriptions, setSubscriptions] = useState([])
@@ -22,7 +22,7 @@ function MainContainer() {
     return (
         <div className="main-layout">
             <div className="left-window-side">
-                <h2>MainContainer:</h2>
+                {/* <h2>MainContainer:</h2> */}
                 <SearchFilterContainer
                     subscriptions={subscriptions}
                     setFilteredSubscriptions={setFilteredSubscriptions}

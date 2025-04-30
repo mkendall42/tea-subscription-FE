@@ -31,18 +31,18 @@ function SearchFilterContainer({ subscriptions, setFilteredSubscriptions }) {
     }
 
     return (
-        <div>
-            <h3>SearchFilterContainer:</h3>
+        <section className="search-filter-box">
+            <h3>Filter Subscriptions:</h3>
             <form>
-                <input
+                <input className="filter-bar"
                     type='text'
-                    placeholder='Filter subscriptions here'
+                    placeholder='Enter text here (case-insensitive)'
                     name='title'
                     value={filterText}
                     onChange={event => filterSubscriptions(event)}
                 />  
             </form>
-        </div>
+        </section>
     )
 }
 

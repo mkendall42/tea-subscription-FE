@@ -1,3 +1,19 @@
+.show-details-box {
+    /* justify-content: left; */
+    text-align: left;
+    padding: 15px;
+    margin: 50px;
+    border-width: 2px;
+    border-style: solid;
+    /* border-color: green; */
+    border-radius: 6px;
+    align-items: center;
+}
+
+p {
+    padding: 0px 0px 0px 15px;
+}
+
 .show-green {
     color: green;
 }

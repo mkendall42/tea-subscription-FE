@@ -1,0 +1,14 @@
+.search-filter-box {
+    border-width: 2px;
+    border-style: solid;
+    /* border-color: green; */
+    border-radius: 6px;
+    margin: 10px;
+}
+
+.filter-bar {
+    margin: 0px 10px 10px 10px;
+    min-width: 240px;
+    min-height: 25px;
+    font-size: 1em;
+}

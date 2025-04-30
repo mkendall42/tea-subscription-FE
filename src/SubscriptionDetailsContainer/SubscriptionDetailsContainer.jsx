@@ -10,7 +10,7 @@ function SubscriptionDetailsContainer({ detailedInfo, setDetailedInfo }) {
     //NOTE: do I need to add more BE endpoints to send tea and customer data?  Or is a huge serializer / JSON response acceptable here?  I'm probably just gonna do the latter...
 
     //Handle alert on changed status
-    
+
     let statusColorClass = ""
     if (detailedInfo.data.status === "active") {
         statusColorClass = "show-green"
@@ -19,22 +19,22 @@ function SubscriptionDetailsContainer({ detailedInfo, setDetailedInfo }) {
     }
 
     return (
-        <section>
-            <h3>SubscriptionDetailsContainer:</h3>
-            <h4>Subscription Information:</h4>
+        <section className="show-details-box">
+            <h3>{`Subscription Details: ${detailedInfo.data.title}`}</h3>
+            <hr></hr>
             <details>
                 <summary>Subscription Information</summary>
-                <p>{`Name / bundle: ${detailedInfo.data.title}`}</p>
-                <p className={statusColorClass}>{`Present status: ${detailedInfo.data.status}`}</p>
-                <p>{`Price: $${detailedInfo.data.price}`}</p>
-                <p>{`Frequency: ${detailedInfo.data.frequency} / month`}</p>
+                {/* <p>{`Name / bundle: ${detailedInfo.data.title}`}</p> */}
+                <p className={statusColorClass}> {` Present status: ${detailedInfo.data.status}`}</p>
+                <p>{` Price: $${detailedInfo.data.price}`}</p>
+                <p>{` Frequency: ${detailedInfo.data.frequency} / month`}</p>
             </details>
             <details>
                 <summary>Tea Information</summary>
                 <p>{`Name: ${detailedInfo.data.tea.title}`}</p>
                 <p>{`Description: ${detailedInfo.data.tea.description}`}</p>
-                <p>{`Brew temperature: ${detailedInfo.data.tea.temperature}`}</p>
-                <p>{`Brew time: ${detailedInfo.data.tea.brew_time}`}</p>
+                <p>{`Brew temperature: ${detailedInfo.data.tea.temperature} deg C`}</p>
+                <p>{`Brew time: ${detailedInfo.data.tea.brew_time} s`}</p>
             </details>
             <details>
                 <summary>Customer Information</summary>
