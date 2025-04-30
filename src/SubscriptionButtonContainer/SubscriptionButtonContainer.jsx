@@ -2,9 +2,7 @@
 import "./SubscriptionButtonContainer.css"
 import { useState } from 'react'
 
-function SubscriptionButtonContainer({ subscriptionInfo }) {
-    const [detailedInfo, setDetailedInfo] = useState({})
-
+function SubscriptionButtonContainer({ subscriptionInfo, setDetailedInfo }) {
     //API BE call to get detailed info for display
     const getDetailedInfo = () => {
         fetch(`http://localhost:3000/api/v1/subscriptions/${subscriptionInfo.id}`)

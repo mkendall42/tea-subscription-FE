@@ -1,4 +1,4 @@
-function SubscriptionDetailsContainer() {
+function SubscriptionDetailsContainer({ detailedInfo }) {
 
     //BE API call to get detailed info on subscription
     //Optional: could do external API call to get a tea image / whatever

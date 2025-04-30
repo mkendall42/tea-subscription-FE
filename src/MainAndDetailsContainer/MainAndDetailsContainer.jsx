@@ -2,11 +2,14 @@ import SearchFilterContainer from "../SearchFilterContainer/SearchFilterContaine
 import SubscriptionsListContainer from "../SubscriptionsListContainer/SubscriptionsListContainer"
 
 function MainAndDetailsContainer() {
+    const [detailedInfo, setDetailedInfo] = useState({})
+
     return (
         <div>
             <h2>MainAndDetailsContainer:</h2>
             <SearchFilterContainer />
-            <SubscriptionsListContainer />
+            <SubscriptionsListContainer setDetailedInfo={setDetailedInfo} />
+            <SubscriptionDetailsContainer detailedInfo={detailedInfo} />
         </div>
     )
 }

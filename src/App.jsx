@@ -8,7 +8,7 @@ import MainAndDetailsContainer from './MainAndDetailsContainer/MainAndDetailsCon
 
 function App() {
 
-
+  //I'm not sure how to handle /:subscription_id yet, given that I'm trying to house everything in MainContainer
   return (
     <main className='App'>
       <h1>Tea Subscriptions Admin View - Welcome!</h1>

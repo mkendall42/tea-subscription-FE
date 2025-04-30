@@ -1,7 +1,7 @@
 import SubscriptionButtonContainer from "../SubscriptionButtonContainer/SubscriptionButtonContainer"
 import { useState, useEffect } from 'react'
 
-function SubscriptionsListContainer() {
+function SubscriptionsListContainer({ setDetailedInfo }) {
     const [subscriptions, setSubscriptions] = useState([])
 
     //Have BE API call to get list of subscriptions (names, IDs, and maybe even status)
@@ -27,7 +27,7 @@ function SubscriptionsListContainer() {
             return <p>Empty list (no subscriptions present)</p>
         } else {
             return subscriptions.map((subscription) => {
-                return <SubscriptionButtonContainer key={subscription.id} subscriptionInfo={subscription} />
+                return <SubscriptionButtonContainer key={subscription.id} subscriptionInfo={subscription} setDetailedInfo={setDetailedInfo} />
             })
         }
     }
