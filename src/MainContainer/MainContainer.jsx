@@ -20,8 +20,8 @@ function MainContainer() {
         <div>
             <h2>MainContainer:</h2>
             <SearchFilterContainer />
-            <SubscriptionsListContainer setDetailedInfo={setDetailedInfo} />
-            {isDetailsView && <SubscriptionDetailsContainer detailedInfo={detailedInfo} />}
+            <SubscriptionsListContainer detailedInfo={detailedInfo} setDetailedInfo={setDetailedInfo} />
+            {isDetailsView && <SubscriptionDetailsContainer detailedInfo={detailedInfo} setDetailedInfo={setDetailedInfo} />}
             {/* Not sure if I should render SubscriptionsDetailsContainer here, or from SubscriptionsListContainer */}
         </div>
     )

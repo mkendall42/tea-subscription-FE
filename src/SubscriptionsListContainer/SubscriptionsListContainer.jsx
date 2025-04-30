@@ -1,7 +1,7 @@
 import SubscriptionButtonContainer from "../SubscriptionButtonContainer/SubscriptionButtonContainer"
 import { useState, useEffect } from 'react'
 
-function SubscriptionsListContainer({ setDetailedInfo }) {
+function SubscriptionsListContainer({ detailedInfo, setDetailedInfo }) {
     const [subscriptions, setSubscriptions] = useState([])
 
     //Have BE API call to get list of subscriptions (names, IDs, and maybe even status)
@@ -16,7 +16,7 @@ function SubscriptionsListContainer({ setDetailedInfo }) {
         .catch(error => {
             console.error("Error: ", error)
         })
-    }, [])
+    }, [detailedInfo])          //I'd rather this just be [] (on mount), but I need it to trigger anytime detailsInfo changes.  I'd rather not do BE calls each time though (caching?)
 
     //Generate list of buttons, then render below.  Do I need useEffect, or is this not really needed?  I'm trying to reduce renders / method calls, mostly...
     //Definitely clean this up later, since the render in return() is separately calling it.  Either set to var, or just one function call!
@@ -26,7 +26,9 @@ function SubscriptionsListContainer({ setDetailedInfo }) {
         if (subscriptions.length === 0) {
             return <p>Empty list (no subscriptions present)</p>
         } else {
-            return subscriptions.map((subscription) => {
+            return subscriptions.sort((subscription1, subscription2) => {       //Needed because BE DB returns results based on updated_at timestamp, apparently
+                return subscription1.id - subscription2.id
+            }).map((subscription) => {
                 return <SubscriptionButtonContainer key={subscription.id} subscriptionInfo={subscription} setDetailedInfo={setDetailedInfo} />
             })
         }
