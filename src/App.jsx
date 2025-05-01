@@ -5,8 +5,10 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import MainContainer from './MainContainer/MainContainer'
 import MainAndDetailsContainer from './MainAndDetailsContainer/MainAndDetailsContainer'
+import ErrorContainer from './ErrorContainer/ErrorContainer'
 
 function App() {
+  const [currentError, setCurrentError] = useState("")
 
   //I'm not sure how to handle /:subscription_id yet, given that I'm trying to house everything in MainContainer
   return (
@@ -16,6 +18,7 @@ function App() {
         <Route path='/' element={<MainContainer isShowDetails={false} />} />
         {/* <Route path='/:subscription_id' element={<MainAndDetailsContainer />} /> */}
         <Route path='/:subscription_id' element={<MainContainer isShowDetails={true} />} />
+        <Route path='/error' element={<ErrorContainer currentError={currentError} />} />
       </Routes>
     </main>
   )
