@@ -1,7 +1,7 @@
 import "./SubscriptionDetailsContainer.css"
 import StatusButtonContainer from "../StatusButtonContainer/StatusButtonContainer"
 
-function SubscriptionDetailsContainer({ detailedInfo, setDetailedInfo }) {
+function SubscriptionDetailsContainer({ detailedInfo, setDetailedInfo, setCurrentError }) {
 
     //BE API call to get detailed info on subscription
     //Optional: could do external API call to get a tea image / whatever
@@ -44,7 +44,7 @@ function SubscriptionDetailsContainer({ detailedInfo, setDetailedInfo }) {
             </details>
             {/* <h4>Tea Information:</h4>
             <h4>Customer Information:</h4> */}
-            <StatusButtonContainer detailedInfo={detailedInfo} setDetailedInfo={setDetailedInfo} />
+            <StatusButtonContainer detailedInfo={detailedInfo} setDetailedInfo={setDetailedInfo} setCurrentError={setCurrentError} />
         </section>
     )
 }

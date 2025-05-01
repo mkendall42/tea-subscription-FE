@@ -15,7 +15,7 @@ function App() {
     <main className='App'>
       <h1>Tea Subscriptions Admin View - Welcome!</h1>
       <Routes>
-        <Route path='/' element={<MainContainer isShowDetails={false} />} />
+        <Route path='/' element={<MainContainer isShowDetails={false} setCurrentError={setCurrentError}/>} />
         {/* <Route path='/:subscription_id' element={<MainAndDetailsContainer />} /> */}
         <Route path='/:subscription_id' element={<MainContainer isShowDetails={true} />} />
         <Route path='/error' element={<ErrorContainer currentError={currentError} />} />

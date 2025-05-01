@@ -4,7 +4,7 @@ import SubscriptionsListContainer from "../SubscriptionsListContainer/Subscripti
 import SubscriptionDetailsContainer from "../SubscriptionDetailsContainer/SubscriptionDetailsContainer"
 import { useState, useEffect } from 'react'
 
-function MainContainer({ isShowDetails }) {
+function MainContainer({ isShowDetails, setCurrentError }) {
     const [detailedInfo, setDetailedInfo] = useState({})
     const [isDetailsView, setIsDetailsView] = useState(false)
     const [subscriptions, setSubscriptions] = useState([])
@@ -33,9 +33,10 @@ function MainContainer({ isShowDetails }) {
                     filteredSubscriptions={filteredSubscriptions}
                     detailedInfo={detailedInfo}
                     setDetailedInfo={setDetailedInfo}
+                    setCurrentError={setCurrentError}
                 />
             </div>
-            {isDetailsView && <SubscriptionDetailsContainer className="right-window-side" detailedInfo={detailedInfo} setDetailedInfo={setDetailedInfo} />}
+            {isDetailsView && <SubscriptionDetailsContainer className="right-window-side" detailedInfo={detailedInfo} setDetailedInfo={setDetailedInfo} setCurrentError={setCurrentError} />}
             {/* Not sure if I should render SubscriptionsDetailsContainer here, or from SubscriptionsListContainer */}
         </div>
     )

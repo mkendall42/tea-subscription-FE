@@ -20,7 +20,12 @@ This application is written in React and JS, on a Vite server.  To configure, ru
 
 - StatusButtonContainer: this button uses multiple state vars (interally, `currentStatus`, and externally, `detailedInfo`) to provide context-aware status.  Specifically, it allows for toggling (both functionally and based on display) between 'active' and 'cancelled' status by the user, which is subsequently re-rendered in the DOM.
 
+## Error handling / user experience
 
+The UI/UX is designed to minimize errors that a user may run into (deliberately or accidentally).  Major instances include:
+- Helpful messaging / information present to provide context and current 'state' on page (such as if no subscriptions exist, what the current status is, the update status button being appropriately labeled).  The update status button in particular will always toggle appropriately, as well as briefly display an updated message when the status has been changed for confirmation.
+- Error handling: several BE API calls are made; the BE is designed to provide precise error messages; the FE in turn is designed to catch and forward these into the state var `currentError`.
+- Anytime such an error is made, navigation is made to the page/route `/error`, so that the user can clearly see the detailed message, and then return to the home page, which forces a full re-render (in the hopes of also clearing the error).
 
 
 ## Future considerations / not implemented

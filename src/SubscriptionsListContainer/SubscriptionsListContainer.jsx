@@ -2,9 +2,11 @@ import "./SubscriptionsListContainer.css"
 import SubscriptionButtonContainer from "../SubscriptionButtonContainer/SubscriptionButtonContainer"
 
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-function SubscriptionsListContainer({ subscriptions, setSubscriptions, filteredSubscriptions, detailedInfo, setDetailedInfo }) {
+function SubscriptionsListContainer({ subscriptions, setSubscriptions, filteredSubscriptions, detailedInfo, setDetailedInfo, setCurrentError }) {
     // const [subscriptions, setSubscriptions] = useState([])
+    const navigateToPage = useNavigate()
 
     console.log("RENDERING SubscriptionsListContainer: filteredSubscriptions: ", filteredSubscriptions)
 
@@ -25,7 +27,9 @@ function SubscriptionsListContainer({ subscriptions, setSubscriptions, filteredS
             setSubscriptions(subscriptionsData.data.subscriptions)
         })
         .catch(error => {
-            console.error("Error: ", error)
+            // console.error("Error: ", error)
+            setCurrentError(error)
+            navigateToPage('/error')
         })
     }, [detailedInfo])          //I'd rather this just be [] (on mount), but I need it to trigger anytime detailsInfo changes.  I'd rather not do BE calls each time though (caching?)
 

@@ -23,7 +23,9 @@ function SubscriptionButtonContainer({ subscriptionInfo, setDetailedInfo }) {
                 navigateToPage(`/${subscriptionInfo.id}`)
             })
             .catch(error => {
-                console.error("Error: ", error)
+                // console.error("Error: ", error)
+                setCurrentError(error)
+                navigateToPage('/error')
             })
     }
 
