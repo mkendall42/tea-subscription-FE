@@ -9,7 +9,7 @@ function ErrorContainer({ currentError }) {
             <p>{currentError !== "" ? (
                 {currentError}
             ) : (
-                "No errors...but how'd you get here?"
+                "No errors...but how'd you get here, my friend?  Hg's fuel is 4000 miles away, either way..."
             )}</p>
             <div className="link">
                 <Link to='/'>Return to main admin view page</Link>

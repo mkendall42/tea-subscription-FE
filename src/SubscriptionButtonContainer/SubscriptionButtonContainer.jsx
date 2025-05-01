@@ -1,7 +1,5 @@
-// import SubscriptionsListContainer from '../SubscriptionsListContainer/SubscriptionsListContainer'
 import teaImage from "../assets/teaBagsImage.jpg"
 import "./SubscriptionButtonContainer.css"
-// import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function SubscriptionButtonContainer({ subscriptionInfo, setDetailedInfo }) {
@@ -23,7 +21,6 @@ function SubscriptionButtonContainer({ subscriptionInfo, setDetailedInfo }) {
                 navigateToPage(`/${subscriptionInfo.id}`)
             })
             .catch(error => {
-                // console.error("Error: ", error)
                 setCurrentError(error)
                 navigateToPage('/error')
             })
@@ -31,7 +28,6 @@ function SubscriptionButtonContainer({ subscriptionInfo, setDetailedInfo }) {
 
     return (
         <button className="subscription-button" onClick={() => getDetailedInfo()}>
-            {/* <h4>SubscriptionButtonContainer:</h4> */}
             <div className="wrapper">
                 <p className="larger-font">{subscriptionInfo.title}</p>
                 <p className="smaller-font">{`(${subscriptionInfo.status})`}</p>

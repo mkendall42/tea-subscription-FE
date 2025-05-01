@@ -2,15 +2,6 @@ import "./SubscriptionDetailsContainer.css"
 import StatusButtonContainer from "../StatusButtonContainer/StatusButtonContainer"
 
 function SubscriptionDetailsContainer({ detailedInfo, setDetailedInfo, setCurrentError }) {
-
-    //BE API call to get detailed info on subscription
-    //Optional: could do external API call to get a tea image / whatever
-    //Optional: could have a button to get tea details, customer details, whatever (would involve more implemented controller actions too...)
-
-    //NOTE: do I need to add more BE endpoints to send tea and customer data?  Or is a huge serializer / JSON response acceptable here?  I'm probably just gonna do the latter...
-
-    //Handle alert on changed status
-
     let statusColorClass = ""
     if (detailedInfo.data.status === "active") {
         statusColorClass = "show-green"
@@ -24,7 +15,6 @@ function SubscriptionDetailsContainer({ detailedInfo, setDetailedInfo, setCurren
             <hr></hr>
             <details>
                 <summary>Subscription Information</summary>
-                {/* <p>{`Name / bundle: ${detailedInfo.data.title}`}</p> */}
                 <p className={statusColorClass}> {` Present status: ${detailedInfo.data.status}`}</p>
                 <p>{` Price: $${detailedInfo.data.price}`}</p>
                 <p>{` Frequency: ${detailedInfo.data.frequency} / month`}</p>
@@ -42,8 +32,6 @@ function SubscriptionDetailsContainer({ detailedInfo, setDetailedInfo, setCurren
                 <p>{`Email: ${detailedInfo.data.customer.email}`}</p>
                 <p>{`Address: ${detailedInfo.data.customer.address}`}</p>
             </details>
-            {/* <h4>Tea Information:</h4>
-            <h4>Customer Information:</h4> */}
             <StatusButtonContainer detailedInfo={detailedInfo} setDetailedInfo={setDetailedInfo} setCurrentError={setCurrentError} />
         </section>
     )

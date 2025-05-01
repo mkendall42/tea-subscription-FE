@@ -10,7 +10,6 @@ function MainContainer({ isShowDetails, setCurrentError }) {
     const [subscriptions, setSubscriptions] = useState([])
     const [filteredSubscriptions, setFilteredSubscriptions] = useState([])
 
-    //There's probably a better way than this, especially since it introduces another state var; at least now further references are quick
     useEffect(() => {
         if (Object.keys(detailedInfo).length === 0) {
             setIsDetailsView(false)
@@ -22,7 +21,6 @@ function MainContainer({ isShowDetails, setCurrentError }) {
     return (
         <div className="main-layout">
             <div className="left-window-side">
-                {/* <h2>MainContainer:</h2> */}
                 <SearchFilterContainer
                     subscriptions={subscriptions}
                     setFilteredSubscriptions={setFilteredSubscriptions}
@@ -37,7 +35,6 @@ function MainContainer({ isShowDetails, setCurrentError }) {
                 />
             </div>
             {isDetailsView && <SubscriptionDetailsContainer className="right-window-side" detailedInfo={detailedInfo} setDetailedInfo={setDetailedInfo} setCurrentError={setCurrentError} />}
-            {/* Not sure if I should render SubscriptionsDetailsContainer here, or from SubscriptionsListContainer */}
         </div>
     )
 }
