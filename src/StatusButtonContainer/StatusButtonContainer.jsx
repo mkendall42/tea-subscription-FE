@@ -29,7 +29,7 @@ function StatusButtonContainer({ detailedInfo, setDetailedInfo, setCurrentError 
         //I have no idea what is wrong.  This method is actually updating status correctly on the BE, I just can't seem to get the response?!
         //Is it a CORS thing?  Something else?  There was an ActiveRecord/ApplicationController error with forbidding ':subscription', so
         //I changed the Rails config.  And still no luck!!!
-        //FOR NOW, just skip all of this checking, and set the new status message on the button, etc to see if it looks alright...
+        //FOR NOW, this skips JSON analysis details since status tells enough, and Postman / RSpec tests verify proper JSON response body
         fetch(`http://localhost:3000/api/v1/subscriptions/${detailedInfo.data.id}`, httpParams)
         .then(result => {
             console.log("Results: ", result)

@@ -1,9 +1,5 @@
 //Utility file for housing specific BE API call(s)
-// import { useNavigate } from 'react-router-dom'
-
 export const getDetailedInfo = (subscriptionId, setDetailedInfo, navigateToPage, setCurrentError) => {
-    // navigateToPage = useNavigate()
-
     fetch(`http://localhost:3000/api/v1/subscriptions/${subscriptionId}`)
             .then(response => {
                 if (!response.ok) {

@@ -1,5 +1,3 @@
-/*Need to create LHS column for buttons list, RHS box for details; above this is search and header/welcome/whatever*/
-
 .main-layout {
     display: flex;
     flex-direction: row;
@@ -10,12 +8,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* align-items: stretch; */
     flex: 0.6;
 }
 
 .right-window-side {
-    /* justify-content: left; */
     flex: 1;
 }
 

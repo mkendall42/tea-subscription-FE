@@ -8,13 +8,13 @@ import teaImage5 from "../assets/licorice-tea.jpg"
 import teaImage6 from "../assets/mint-tea.jpg"
 import teaImage7 from "../assets/sleepytime.jpg"
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function SubscriptionsListContainer({ subscriptions, setSubscriptions, filteredSubscriptions, detailedInfo, setDetailedInfo, setCurrentError }) {
     const navigateToPage = useNavigate()
 
-    //Create array to randomly sample from
+    //Create image array for display (later could randomly sample or gen via API call)
     const imageFiles = [teaImage1, teaImage2, teaImage3, teaImage4, teaImage5, teaImage6, teaImage7]
 
     //BE API call to get list of subscriptions.  Needs to trigger rendering when status button (and therefore 'detailedInfo') changes
@@ -37,16 +37,7 @@ function SubscriptionsListContainer({ subscriptions, setSubscriptions, filteredS
         })
     }, [detailedInfo])
 
-    //Generate list of buttons, then render below.  Do I need useEffect, or is this not really needed?  I'm trying to reduce renders / method calls, mostly...
-    //Definitely clean this up later, since the render in return() is separately calling it.  Either set to var, or just one function call!
-    // useEffect(() => generateButtonList, [subscriptions])
-    
     const generateButtonList = () => {
-
-        // console.log("Generating button list...")
-        // console.log("subscriptions: ", subscriptions)
-        // console.log("filteredSubscriptions: ", filteredSubscriptions)
-
         if (filteredSubscriptions.length === 0) {
             return <p>Empty list (no filteredSubscriptions present)</p>
         } else {

@@ -22,22 +22,12 @@ function MainContainer({ isShowDetails, setCurrentError }) {
         }
     }, [detailedInfo])
 
+    //If manually selecting route with valid id, do manual details load immediately (and only once)
     useEffect(() => {
         if (isShowDetails) {
         getDetailedInfo(subscription_id, setDetailedInfo, navigateToPage, setCurrentError)
         }
     }, [])
-
-    //If isShowDetails, do a manual load right now (would be good to move to utility file)
-    // if (isShowDetails) {
-    //     //Load from BE right now!
-    //     getDetailedInfo(subscription_id, setDetailedInfo, navigateToPage, setCurrentError)
-    //     // export function getCreatureDetails(creatureType, id) {
-    //     //     return creaturesData[creatureType].find(creature => {
-    //     //       return creature.id === parseInt(id)
-    //     //     });
-    //     //   }
-    // }
     
     return (
         <div className="main-layout">
