@@ -43,7 +43,14 @@ function SubscriptionsListContainer({ subscriptions, setSubscriptions, filteredS
             return filteredSubscriptions.sort((subscription1, subscription2) => {       //Needed because BE DB returns results based on updated_at timestamp
                 return subscription1.id - subscription2.id
             }).map((subscription) => {
-                return <SubscriptionButtonContainer key={subscription.id} subscriptionInfo={subscription} setDetailedInfo={setDetailedInfo} />
+                return (
+                    <SubscriptionButtonContainer
+                        key={subscription.id}
+                        subscriptionInfo={subscription}
+                        setDetailedInfo={setDetailedInfo}
+                        setCurrentError={setCurrentError}
+                    />
+                )
             })
         }
     }
