@@ -26,17 +26,18 @@ The UI/UX is designed to minimize errors that a user may run into (deliberately 
 - Helpful messaging / information present to provide context and current 'state' on page (such as if no subscriptions exist, what the current status is, the update status button being appropriately labeled).  The update status button in particular will always toggle appropriately, as well as briefly display an updated message when the status has been changed for confirmation.
 - Error handling: several BE API calls are made; the BE is designed to provide precise error messages; the FE in turn is designed to catch and forward these into the state var `currentError`.
 - Anytime such an error is made, navigation is made to the page/route `/error`, so that the user can clearly see the detailed message, and then return to the home page, which forces a full re-render (in the hopes of also clearing the error).
+- Note: error handling is only partially functional when a user manually types a route with an id that doesn't exist (e.g. `/10000`).
 
 
-## Future considerations / not implemented
+## Future considerations / not implemented - more notes
 
+- Cypress testing is not implemented (based on prioritizing other features / aspects).  While I manually tested many arrangements for the site, this would allow for a more robust and consistent setup.
 - Might re-arrange to be more like Rancid Tomatillos (like other students apparently have done).  I wanted to try something different, but formatting has become tricky.
-- More robust Cypress testing.
-- More refactoring, especially making importable API utility call files.
-- More CSS formatting; especially better aligning of boxes (lists vs details and resizing based on amount of text / content)
+- One API call is moved to a utility file (due to re-use).  However, this comes at the expense of many parameters needing to be passed, and therefore a little bit of prop drilling.  More optimized / cleaner solutions would be appreciated.
+- More CSS formatting; especially better aligning of boxes (lists vs details and resizing based on amount of text / content).  This affects the UX.
 - More strategic / minimized use of state variables, especially in 'tangled' arrangements.  I suspect this FE has more than necessary, and they are causing (as a result of this, and other factors) an uncessary number of re-renders.  At least there aren't any infinite loops.
 
 ## Contact information
 
-Author: Mark Kendall
-LinkedIn: 
+Author: Mark Kendall  
+LinkedIn: [Profile](https://www.linkedin.com/in/markkendall496/)
