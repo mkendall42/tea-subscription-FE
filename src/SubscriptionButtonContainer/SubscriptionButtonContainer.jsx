@@ -1,9 +1,8 @@
 import "./SubscriptionButtonContainer.css"
 import { getDetailedInfo } from "../apiCalls.js"
-import teaImage from "../assets/teaBagsImage.jpg"
 import { useNavigate } from 'react-router-dom'
 
-function SubscriptionButtonContainer({ subscriptionInfo, setDetailedInfo, setCurrentError }) {
+function SubscriptionButtonContainer({ subscriptionInfo, setDetailedInfo, setCurrentError, imageFile }) {
     const navigateToPage = useNavigate()
 
     //API BE call to get detailed info for display
@@ -27,13 +26,15 @@ function SubscriptionButtonContainer({ subscriptionInfo, setDetailedInfo, setCur
     //         })
     // }
 
+    
+
     return (
         <button className="subscription-button" onClick={() => getDetailedInfo(subscriptionInfo.id, setDetailedInfo, navigateToPage, setCurrentError)}>
             <div className="wrapper">
                 <p className="larger-font">{subscriptionInfo.title}</p>
                 <p className="smaller-font">{`(${subscriptionInfo.status})`}</p>
             </div>
-            <img src={teaImage}></img>
+            <img src={imageFile}></img>
         </button>
     )
 }

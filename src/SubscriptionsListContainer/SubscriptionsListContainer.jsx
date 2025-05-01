@@ -1,11 +1,21 @@
 import "./SubscriptionsListContainer.css"
 import SubscriptionButtonContainer from "../SubscriptionButtonContainer/SubscriptionButtonContainer"
+import teaImage1 from "../assets/teaBagsImage.jpg"
+import teaImage2 from "../assets/chai-tea.jpg"
+import teaImage3 from "../assets/green-tea.jpg"
+import teaImage4 from "../assets/herbaltea.jpg"
+import teaImage5 from "../assets/licorice-tea.jpg"
+import teaImage6 from "../assets/mint-tea.jpg"
+import teaImage7 from "../assets/sleepytime.jpg"
 
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function SubscriptionsListContainer({ subscriptions, setSubscriptions, filteredSubscriptions, detailedInfo, setDetailedInfo, setCurrentError }) {
     const navigateToPage = useNavigate()
+
+    //Create array to randomly sample from
+    const imageFiles = [teaImage1, teaImage2, teaImage3, teaImage4, teaImage5, teaImage6, teaImage7]
 
     //BE API call to get list of subscriptions.  Needs to trigger rendering when status button (and therefore 'detailedInfo') changes
     useEffect(() => {
@@ -42,13 +52,14 @@ function SubscriptionsListContainer({ subscriptions, setSubscriptions, filteredS
         } else {
             return filteredSubscriptions.sort((subscription1, subscription2) => {       //Needed because BE DB returns results based on updated_at timestamp
                 return subscription1.id - subscription2.id
-            }).map((subscription) => {
+            }).map((subscription, i) => {
                 return (
                     <SubscriptionButtonContainer
                         key={subscription.id}
                         subscriptionInfo={subscription}
                         setDetailedInfo={setDetailedInfo}
                         setCurrentError={setCurrentError}
+                        imageFile={imageFiles[i]}
                     />
                 )
             })
